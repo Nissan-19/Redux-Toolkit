@@ -1,7 +1,7 @@
 import React from 'react'
 import { avaliableProducts } from './data/avaliableProducts'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart, clearCart, deleteItem } from './features/savedCart/savedCartSlice'
+import { addToCart, clearCart, decreaseQuantity, deleteItem } from './features/savedCart/savedCartSlice'
 
 const App = () => {
 
@@ -29,6 +29,7 @@ const App = () => {
           <li key={cartItem.id}>
             <span>{cartItem.name} - Quantity: {cartItem.quantity}</span>
             <button onClick={()=>dispatch(deleteItem(cartItem.id))}>Delete</button>
+            <button onClick={()=>dispatch(decreaseQuantity(cartItem.id))}>Decrese Quantity</button>
           </li>
         ))}</ul>
 
